@@ -10,17 +10,45 @@ body {
 
     min-height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
 }
 
-/* Main Container */
-.container {
+/* Main Layout */
+.app {
 
-    width: 450px;
+    display: flex;
 
-    background: rgba(255, 255, 255, 0.15);
+    gap: 30px;
+
+    padding: 40px;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+}
+
+/* Left Section */
+.left-section {
+
+    flex: 1;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+/* Right Section */
+.right-section {
+
+    flex: 1.2;
+
+    background: rgba(255,255,255,0.15);
 
     backdrop-filter: blur(10px);
 
@@ -30,66 +58,50 @@ body {
 
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 
-    color: white;
+    overflow-y: auto;
 
-    animation: fadeIn 1s ease;
-}
-
-/* Fade Animation */
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    max-height: calc(100vh - 80px);
 }
 
 /* Heading */
 h1 {
 
-    text-align: center;
+    font-size: 42px;
 
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* Subtitle */
 .subtitle {
 
-    text-align: center;
-
-    margin-bottom: 25px;
-
     color: #eeeeee;
+
+    margin-bottom: 30px;
 }
 
-/* Input Section */
-.input-section {
+/* Input Box */
+.input-box {
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 12px;
+    gap: 15px;
 }
 
 /* Input & Textarea */
 input,
 textarea {
 
-    padding: 12px;
+    padding: 15px;
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     outline: none;
 
-    font-size: 15px;
+    font-size: 16px;
 
     transition: 0.3s;
 }
@@ -106,10 +118,10 @@ textarea {
 
     resize: none;
 
-    height: 90px;
+    height: 150px;
 }
 
-/* Character Count */
+/* Character Counter */
 #charCount {
 
     text-align: right;
@@ -117,20 +129,20 @@ textarea {
     color: #dddddd;
 }
 
-/* Add Button */
+/* Button */
 button {
 
-    padding: 12px;
+    padding: 15px;
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     background: #00c6ff;
 
     color: white;
 
-    font-size: 16px;
+    font-size: 18px;
 
     font-weight: bold;
 
@@ -139,7 +151,7 @@ button {
     transition: 0.3s;
 }
 
-/* Button Hover */
+/* Hover */
 button:hover {
 
     background: #0072ff;
@@ -147,24 +159,20 @@ button:hover {
     transform: scale(1.03);
 }
 
-/* Error Message */
+/* Error */
 #errorMessage {
 
     color: #ffb3b3;
-
-    margin-top: 10px;
-
-    text-align: center;
 }
 
 /* Empty State */
 #emptyState {
 
+    margin-top: 30px;
+
     text-align: center;
 
-    margin-top: 20px;
-
-    color: #f0f0f0;
+    color: #eeeeee;
 }
 
 /* Todo List */
@@ -177,54 +185,56 @@ ul {
     margin-top: 20px;
 }
 
-/* Todo Item */
+/* Todo Card */
 li {
 
     background: rgba(255,255,255,0.2);
 
-    padding: 15px;
+    padding: 20px;
 
-    border-radius: 12px;
+    border-radius: 15px;
 
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
-    animation: slideIn 0.5s ease;
+    animation: fadeIn 0.5s ease;
 }
 
-/* Slide Animation */
-@keyframes slideIn {
+/* Animation */
+@keyframes fadeIn {
 
     from {
+
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateY(20px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
-/* Todo Title */
+/* Task Title */
 .todo-title {
 
-    font-size: 18px;
+    font-size: 22px;
 
     font-weight: 600;
 }
 
-/* Todo Description */
+/* Task Description */
 .todo-description {
 
-    margin-top: 8px;
+    margin-top: 10px;
 
-    color: #f5f5f5;
+    color: #f0f0f0;
 }
 
-/* Button Group */
+/* Buttons Area */
 .todo-buttons {
 
-    margin-top: 12px;
+    margin-top: 20px;
 
     display: flex;
 
@@ -244,10 +254,10 @@ li {
 }
 
 /* Responsive */
-@media(max-width: 500px) {
+@media(max-width: 900px) {
 
-    .container {
+    .app {
 
-        width: 90%;
+        flex-direction: column;
     }
 }

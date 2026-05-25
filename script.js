@@ -1,24 +1,33 @@
-// Getting HTML elements
-const todoInput = document.getElementById("todoInput");
+// HTML Elements
+const todoInput =
+    document.getElementById("todoInput");
 
-const todoDescription = document.getElementById("todoDescription");
+const todoDescription =
+    document.getElementById("todoDescription");
 
-const addBtn = document.getElementById("addBtn");
+const addBtn =
+    document.getElementById("addBtn");
 
-const todoList = document.getElementById("todoList");
+const todoList =
+    document.getElementById("todoList");
 
-const errorMessage = document.getElementById("errorMessage");
+const errorMessage =
+    document.getElementById("errorMessage");
 
-const emptyState = document.getElementById("emptyState");
+const emptyState =
+    document.getElementById("emptyState");
 
-const charCount = document.getElementById("charCount");
-
-
-// Load todos from local storage
-let todos = JSON.parse(localStorage.getItem("todos")) || [];
+const charCount =
+    document.getElementById("charCount");
 
 
-// Display todos when page loads
+// Load from localStorage
+let todos =
+    JSON.parse(localStorage.getItem("todos"))
+    || [];
+
+
+// Display tasks on load
 displayTodos();
 
 
@@ -33,14 +42,15 @@ todoInput.addEventListener("input", () => {
 // Add Task
 addBtn.addEventListener("click", () => {
 
-    // Getting values
-    const todoText = todoInput.value.trim();
+    // Values
+    const task =
+        todoInput.value.trim();
 
-    const descriptionText =
+    const description =
         todoDescription.value.trim();
 
-    // Empty validation
-    if (todoText === "") {
+    // Empty Validation
+    if (task === "") {
 
         errorMessage.textContent =
             "Task cannot be empty ❌";
@@ -48,8 +58,8 @@ addBtn.addEventListener("click", () => {
         return;
     }
 
-    // Max length validation
-    if (todoText.length > 50) {
+    // Max Length
+    if (task.length > 50) {
 
         errorMessage.textContent =
             "Maximum 50 characters allowed ❌";
@@ -57,11 +67,12 @@ addBtn.addEventListener("click", () => {
         return;
     }
 
-    // Duplicate validation
-    const duplicate = todos.find(todo =>
-        todo.name.toLowerCase() ===
-        todoText.toLowerCase()
-    );
+    // Duplicate Validation
+    const duplicate =
+        todos.find(todo =>
+            todo.name.toLowerCase() ===
+            task.toLowerCase()
+        );
 
     if (duplicate) {
 
@@ -71,27 +82,27 @@ addBtn.addEventListener("click", () => {
         return;
     }
 
-    // Clear error
+    // Clear Error
     errorMessage.textContent = "";
 
-    // Create object
+    // Create Todo Object
     const todo = {
 
-        name: todoText,
+        name: task,
 
-        description: descriptionText
+        description: description
     };
 
-    // Add into array
+    // Add Task
     todos.push(todo);
 
-    // Save data
+    // Save
     saveTodos();
 
     // Refresh UI
     displayTodos();
 
-    // Clear inputs
+    // Clear Fields
     todoInput.value = "";
 
     todoDescription.value = "";
@@ -103,10 +114,10 @@ addBtn.addEventListener("click", () => {
 // Display Todos
 function displayTodos() {
 
-    // Clear old list
+    // Clear UI
     todoList.innerHTML = "";
 
-    // Empty state
+    // Empty State
     if (todos.length === 0) {
 
         emptyState.style.display = "block";
@@ -116,10 +127,10 @@ function displayTodos() {
         emptyState.style.display = "none";
     }
 
-    // Loop through todos
+    // Loop
     todos.forEach((todo, index) => {
 
-        // Create list item
+        // Create Card
         const li =
             document.createElement("li");
 
@@ -148,7 +159,7 @@ function displayTodos() {
             </div>
         `;
 
-        // Add into UI
+        // Add to Screen
         todoList.appendChild(li);
     });
 }
@@ -157,27 +168,23 @@ function displayTodos() {
 // Edit Todo
 function editTodo(index) {
 
-    const updatedTask = prompt(
-        "Edit task",
-        todos[index].name
-    );
+    const updatedTask =
+        prompt(
+            "Edit Task",
+            todos[index].name
+        );
 
-    // Cancel
-    if (updatedTask === null) {
-
-        return;
-    }
-
-    // Empty validation
-    if (updatedTask.trim() === "") {
-
-        alert("Task cannot be empty");
+    if (
+        updatedTask === null ||
+        updatedTask.trim() === ""
+    ) {
 
         return;
     }
 
-    // Update task
-    todos[index].name = updatedTask;
+    // Update
+    todos[index].name =
+        updatedTask;
 
     // Save
     saveTodos();
@@ -195,19 +202,16 @@ function deleteTodo(index) {
 
     if (confirmDelete) {
 
-        // Remove task
         todos.splice(index, 1);
 
-        // Save
         saveTodos();
 
-        // Refresh UI
         displayTodos();
     }
 }
 
 
-// Save To Local Storage
+// Save Function
 function saveTodos() {
 
     localStorage.setItem(
