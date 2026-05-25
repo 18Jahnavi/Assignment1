@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Mobile responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website title -->
+    <title>Creative To-Do App</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- App Title -->
+        <h1>✨ Creative To-Do App</h1>
+
+        <!-- Subtitle -->
+        <p class="subtitle">Stay organized and productive 🚀</p>
+
+        <!-- Input Section -->
+        <div class="input-section">
+
+            <!-- Todo Input -->
+            <input type="text"
+                id="todoInput"
+                placeholder="Enter your task...">
+
+            <!-- Character Counter -->
+            <small id="charCount">0 / 50</small>
+
+            <!-- Description -->
+            <textarea id="todoDescription"
+                placeholder="Enter task description..."></textarea>
+
+            <!-- Add Button -->
+            <button id="addBtn">
+                ➕ Add Task
+            </button>
+
+        </div>
+
+        <!-- Validation Error -->
+        <p id="errorMessage"></p>
+
+        <!-- Empty State -->
+        <div id="emptyState">
+            No tasks added yet 😴
+        </div>
+
+        <!-- Todo List -->
+        <ul id="todoList"></ul>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
