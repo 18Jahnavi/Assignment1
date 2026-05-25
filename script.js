@@ -59,10 +59,10 @@ addBtn.addEventListener("click", () => {
     }
 
     // Max Length
-    if (task.length > 50) {
+    if (task.length > 10) {
 
         errorMessage.textContent =
-            "Maximum 50 characters allowed ❌";
+            "Maximum 10 characters allowed ❌";
 
         return;
     }
