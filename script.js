@@ -35,7 +35,7 @@ displayTodos();
 todoInput.addEventListener("input", () => {
 
     charCount.textContent =
-        `${todoInput.value.length} / 50`;
+        `${todoInput.value.length} / 10`;
 });
 
 
