@@ -107,7 +107,7 @@ addBtn.addEventListener("click", () => {
 
     todoDescription.value = "";
 
-    charCount.textContent = "0 / 50";
+    charCount.textContent = "0 / 10";
 });
 
 
