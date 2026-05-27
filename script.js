@@ -21,13 +21,13 @@ const charCount =
     document.getElementById("charCount");
 
 
-// Load from localStorage
+// Load tasks from localStorage
 let todos =
     JSON.parse(localStorage.getItem("todos"))
     || [];
 
 
-// Display tasks on load
+// Display tasks initially
 displayTodos();
 
 
@@ -42,7 +42,7 @@ todoInput.addEventListener("input", () => {
 // Add Task
 addBtn.addEventListener("click", () => {
 
-    // Values
+    // Input Values
     const task =
         todoInput.value.trim();
 
@@ -58,7 +58,7 @@ addBtn.addEventListener("click", () => {
         return;
     }
 
-    // Max Length
+    // Max Character Validation
     if (task.length > 10) {
 
         errorMessage.textContent =
@@ -96,13 +96,13 @@ addBtn.addEventListener("click", () => {
     // Add Task
     todos.push(todo);
 
-    // Save
+    // Save Tasks
     saveTodos();
 
     // Refresh UI
     displayTodos();
 
-    // Clear Fields
+    // Clear Inputs
     todoInput.value = "";
 
     todoDescription.value = "";
@@ -111,10 +111,10 @@ addBtn.addEventListener("click", () => {
 });
 
 
-// Display Todos
+// Display Tasks
 function displayTodos() {
 
-    // Clear UI
+    // Clear Existing UI
     todoList.innerHTML = "";
 
     // Empty State
@@ -127,10 +127,10 @@ function displayTodos() {
         emptyState.style.display = "none";
     }
 
-    // Loop
+    // Loop through tasks
     todos.forEach((todo, index) => {
 
-        // Create Card
+        // Create List Item
         const li =
             document.createElement("li");
 
@@ -165,7 +165,7 @@ function displayTodos() {
 }
 
 
-// Edit Todo
+// Edit Task
 function editTodo(index) {
 
     const updatedTask =
@@ -182,7 +182,7 @@ function editTodo(index) {
         return;
     }
 
-    // Update
+    // Update Task
     todos[index].name =
         updatedTask;
 
@@ -194,7 +194,7 @@ function editTodo(index) {
 }
 
 
-// Delete Todo
+// Delete Task
 function deleteTodo(index) {
 
     const confirmDelete =
