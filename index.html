@@ -21,10 +21,10 @@
 
 <body>
 
-    <!-- Main Wrapper -->
+    <!-- Main Container -->
     <div class="app">
 
-        <!-- Left Side -->
+        <!-- Left Section -->
         <div class="left-section">
 
             <h1>✨ Creative To-Do App</h1>
@@ -33,16 +33,22 @@
                 Organize your daily tasks beautifully 🚀
             </p>
 
-            <!-- Input Box -->
+            <!-- Input Area -->
             <div class="input-box">
 
-            <!-- Character Counter -->
-            <small id="charCount">0 / 10</small>
+                <!-- Task Input -->
+                <input type="text"
+                    id="todoInput"
+                    placeholder="Enter task">
 
-               
+                <!-- Character Counter -->
+                <small id="charCount">
+                    0 / 10
+                </small>
+
                 <!-- Description -->
                 <textarea id="todoDescription"
-                    placeholder="Enter task description"></textarea>
+                    placeholder="Enter description"></textarea>
 
                 <!-- Add Button -->
                 <button id="addBtn">
@@ -56,26 +62,24 @@
 
         </div>
 
-        <!-- Right Side -->
+        <!-- Right Section -->
         <div class="right-section">
 
             <h2>📋 Your Tasks</h2>
 
             <!-- Empty State -->
             <div id="emptyState">
-
                 No tasks added yet 😴
-
             </div>
 
-            <!-- Task List -->
+            <!-- Todo List -->
             <ul id="todoList"></ul>
 
         </div>
 
     </div>
 
-    <!-- JS -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>

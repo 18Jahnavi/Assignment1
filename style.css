@@ -1,4 +1,4 @@
-/* Entire Page */
+/* Full Page */
 body {
 
     margin: 0;
@@ -151,7 +151,7 @@ button {
     transition: 0.3s;
 }
 
-/* Hover */
+/* Button Hover */
 button:hover {
 
     background: #0072ff;
@@ -159,7 +159,7 @@ button:hover {
     transform: scale(1.03);
 }
 
-/* Error */
+/* Error Message */
 #errorMessage {
 
     color: #ffb3b3;
